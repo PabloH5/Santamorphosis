@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 658814933}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  dashSpeed: 7
+  dashDuration: 0.15
+  dashCoolDown: 2
 --- !u!50 &658814934
 Rigidbody2D:
   serializedVersion: 4
