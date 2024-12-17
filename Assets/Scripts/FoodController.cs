@@ -22,6 +22,6 @@ public class FoodController : MonoBehaviour
 
     private GameObject RandomFood()
     {
-        return foodPrefabs[Random.Range(0, foodPrefabs.Count+1)];
+        return foodPrefabs[Random.Range(0, foodPrefabs.Count)];
     }
 }
