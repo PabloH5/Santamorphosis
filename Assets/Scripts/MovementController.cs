@@ -17,9 +17,7 @@ public class MovementController : MonoBehaviour
     public float dashTimer;
     public bool isDashing;
     private float dashEndTime;
-
     
-
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();

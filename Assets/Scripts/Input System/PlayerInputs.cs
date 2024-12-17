@@ -191,6 +191,171 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Transformation"",
+            ""id"": ""b346ac99-9269-485f-8bee-0033ec3cd504"",
+            ""actions"": [
+                {
+                    ""name"": ""Item1"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa2fe168-d1db-4301-9618-8c28fc63f252"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item2"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a86db61-8016-463e-a84e-f360d5469926"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item3"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb1095b7-2c37-4797-8ef2-7362b9e10f68"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TransformBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""01a5eb81-cace-4ff7-a9f8-42d342e77f87"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a7ccf634-611e-43ae-87ad-6daf012eca60"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Item1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e4f86cd-eba0-4c04-9dbc-cefaee41a403"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Item1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbb02744-049e-41fa-b9f4-22fa26536cb5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Item1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab9ead93-4f92-4ada-b11a-447083a1ca60"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Item2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82bbf04c-27fe-40c6-9fdc-0e8bb67f35f8"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Item2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74e52a6b-bfb9-4055-83f7-947d6c28542e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Item2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb5a8155-a0ec-4d00-a0cb-ea2d3740080e"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Item3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cda64ef9-e28b-449c-a668-1495fa1369f5"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Item3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60255368-dd36-4098-a746-c8174878ae83"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Item3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7945e6cd-1a22-4a06-a092-477569313764"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""TransformBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eafbc42b-2c55-4d72-a79b-78161b247d13"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""TransformBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -222,6 +387,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        // Transformation
+        m_Transformation = asset.FindActionMap("Transformation", throwIfNotFound: true);
+        m_Transformation_Item1 = m_Transformation.FindAction("Item1", throwIfNotFound: true);
+        m_Transformation_Item2 = m_Transformation.FindAction("Item2", throwIfNotFound: true);
+        m_Transformation_Item3 = m_Transformation.FindAction("Item3", throwIfNotFound: true);
+        m_Transformation_TransformBack = m_Transformation.FindAction("TransformBack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -333,6 +504,76 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Transformation
+    private readonly InputActionMap m_Transformation;
+    private List<ITransformationActions> m_TransformationActionsCallbackInterfaces = new List<ITransformationActions>();
+    private readonly InputAction m_Transformation_Item1;
+    private readonly InputAction m_Transformation_Item2;
+    private readonly InputAction m_Transformation_Item3;
+    private readonly InputAction m_Transformation_TransformBack;
+    public struct TransformationActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public TransformationActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Item1 => m_Wrapper.m_Transformation_Item1;
+        public InputAction @Item2 => m_Wrapper.m_Transformation_Item2;
+        public InputAction @Item3 => m_Wrapper.m_Transformation_Item3;
+        public InputAction @TransformBack => m_Wrapper.m_Transformation_TransformBack;
+        public InputActionMap Get() { return m_Wrapper.m_Transformation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TransformationActions set) { return set.Get(); }
+        public void AddCallbacks(ITransformationActions instance)
+        {
+            if (instance == null || m_Wrapper.m_TransformationActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_TransformationActionsCallbackInterfaces.Add(instance);
+            @Item1.started += instance.OnItem1;
+            @Item1.performed += instance.OnItem1;
+            @Item1.canceled += instance.OnItem1;
+            @Item2.started += instance.OnItem2;
+            @Item2.performed += instance.OnItem2;
+            @Item2.canceled += instance.OnItem2;
+            @Item3.started += instance.OnItem3;
+            @Item3.performed += instance.OnItem3;
+            @Item3.canceled += instance.OnItem3;
+            @TransformBack.started += instance.OnTransformBack;
+            @TransformBack.performed += instance.OnTransformBack;
+            @TransformBack.canceled += instance.OnTransformBack;
+        }
+
+        private void UnregisterCallbacks(ITransformationActions instance)
+        {
+            @Item1.started -= instance.OnItem1;
+            @Item1.performed -= instance.OnItem1;
+            @Item1.canceled -= instance.OnItem1;
+            @Item2.started -= instance.OnItem2;
+            @Item2.performed -= instance.OnItem2;
+            @Item2.canceled -= instance.OnItem2;
+            @Item3.started -= instance.OnItem3;
+            @Item3.performed -= instance.OnItem3;
+            @Item3.canceled -= instance.OnItem3;
+            @TransformBack.started -= instance.OnTransformBack;
+            @TransformBack.performed -= instance.OnTransformBack;
+            @TransformBack.canceled -= instance.OnTransformBack;
+        }
+
+        public void RemoveCallbacks(ITransformationActions instance)
+        {
+            if (m_Wrapper.m_TransformationActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ITransformationActions instance)
+        {
+            foreach (var item in m_Wrapper.m_TransformationActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_TransformationActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public TransformationActions @Transformation => new TransformationActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -355,5 +596,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+    }
+    public interface ITransformationActions
+    {
+        void OnItem1(InputAction.CallbackContext context);
+        void OnItem2(InputAction.CallbackContext context);
+        void OnItem3(InputAction.CallbackContext context);
+        void OnTransformBack(InputAction.CallbackContext context);
     }
 }
