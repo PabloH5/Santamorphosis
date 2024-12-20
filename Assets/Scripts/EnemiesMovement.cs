@@ -14,11 +14,16 @@ public class EnemiesMovement : MonoBehaviour
     public bool isReturningToPatrol = false;
     private Vector3 lastPosition; // Almacena la última posición del enemigo
     public string movingDirection;
-    public Transform rangoVisionMesh;
+    
+    private Vector3 lastPositionTarget; 
+    public Animator animator;
     
 
-
-    private Vector3 lastPositionTarget; 
+    void start()
+    {
+        
+        animator = GetComponent<Animator>(); // Obtén el Animator del personaje
+    }
 
 
 
@@ -61,6 +66,12 @@ public class EnemiesMovement : MonoBehaviour
     public void chasingPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, santaMorpho.position, speed * Time.deltaTime);
+        if(Vector2.Distance(transform.position, santaMorpho.position)< 1.0f)
+        {
+            Debug.Log("Atrapado");
+
+        }
+
     }
 
     public void MoveToLastPosition(Vector3 position)
@@ -91,15 +102,28 @@ public class EnemiesMovement : MonoBehaviour
     {
         if (movement.x > 0)
         {
-            movingDirection = "right"; // Se mueve hacia la derecha
-            rangoVisionMesh.rotation = Quaternion.Euler(0f, 0f, 90.0f);
+            movingDirection = "right";
+            animator.SetBool("goRight", true);
+            animator.SetBool("goLeft", false);
+
+            transform.localScale = new Vector3(1, 1, 1);
+
+            
+            
 
         }
             
         else if (movement.x < 0)
         {
-            movingDirection = "left"; // Se mueve hacia la izquierda
-            rangoVisionMesh.rotation = Quaternion.Euler(0f, 0f, 270.0f);
+            movingDirection = "left";
+            animator.SetBool("goLeft", true);
+            animator.SetBool("goRight", false);
+            transform.localScale = new Vector3(-1, 1, 1);
+
+            
+            
+            
+            
         }
             
     }
@@ -107,12 +131,30 @@ public class EnemiesMovement : MonoBehaviour
     {
         if (movement.y > 0)
         {
-            movingDirection = "up"; // Se mueve hacia arriba
-            rangoVisionMesh.rotation = Quaternion.Euler(0f, 0f, 180.0f);
+            movingDirection = "up";
+            
+            
+                animator.SetBool("goUp", true);
+                animator.SetBool("goDown", false);
+
+
+            
+            
+            
         }
             
         else if (movement.y < 0)
-            movingDirection = "down"; // Se mueve hacia abajo
+        {
+            movingDirection = "down";
+            animator.SetBool("GoDown", true);
+            animator.SetBool("goUp", false);
+
+           
+            
+           
+
+        }
+            
     }
 
     // Guardar la posición actual para usarla como la previa en el siguiente frame

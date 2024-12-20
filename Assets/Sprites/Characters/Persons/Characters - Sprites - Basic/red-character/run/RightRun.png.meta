@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ceb3ce779ee7ae49ae00bdf4efc895d
+guid: 90fa0ee8dfe3bdf459cc7e9594fece1d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run-front-sheet_0
+      name: RightRun_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 17
-        height: 21
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f80e6647b6a6a5d49a9bac8597f770ca
-      internalID: -398856620
+      spriteID: 605227c857aebc242b6b16029815c2df
+      internalID: -1639901344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run-front-sheet_1
+      name: RightRun_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 14
         y: 0
-        width: 17
-        height: 21
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60a3c5f304999a647a5e94962609000a
-      internalID: 744713279
+      spriteID: cd002808e888b3b4793116c47641a6dd
+      internalID: -1421339858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run-front-sheet_2
+      name: RightRun_2
       rect:
         serializedVersion: 2
-        x: 34
+        x: 28
         y: 0
-        width: 17
-        height: 21
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b20547ed4e30bb4ab551e97b1e59a85
-      internalID: -617318767
+      spriteID: f07c715e7c635e24c912d881f8c8a493
+      internalID: 784951175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run-front-sheet_3
+      name: RightRun_3
       rect:
         serializedVersion: 2
-        x: 51
+        x: 42
         y: 0
-        width: 17
-        height: 21
+        width: 14
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 485f2e407c6be8442a706e6efa7ead4d
-      internalID: 2112712286
+      spriteID: 28b464a892f823f41adc829bc83e0f0a
+      internalID: 1533681458
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      run-front-sheet_0: -398856620
-      run-front-sheet_1: 744713279
-      run-front-sheet_2: -617318767
-      run-front-sheet_3: 2112712286
+      RightRun_0: -1639901344
+      RightRun_1: -1421339858
+      RightRun_2: 784951175
+      RightRun_3: 1533681458
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
