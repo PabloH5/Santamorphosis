@@ -40,12 +40,14 @@ public class MetamorphosisController : MonoBehaviour
     public void Transformation(int itemId = 0)
     {
         TurnItems();
+        
 
         switch (itemId)
         {
             case 0:
                 // Activate the first item and stop transformation mode
                 transformItems[0].SetActive(true);
+                SetTag(0);
                 isTransforming = false;
                 // No cooldown triggered here
                 break;
@@ -53,6 +55,7 @@ public class MetamorphosisController : MonoBehaviour
             case 1:
                 // Activate the corresponding item for state 1
                 transformItems[1].SetActive(true);
+                SetTag(1);
                 isTransforming = true;
                 StartCooldown();
                 break;
@@ -60,6 +63,7 @@ public class MetamorphosisController : MonoBehaviour
             case 2:
                 // Activate the corresponding item for state 2
                 transformItems[2].SetActive(true);
+                SetTag(2);
                 isTransforming = true;
                 StartCooldown();
                 break;
@@ -67,6 +71,7 @@ public class MetamorphosisController : MonoBehaviour
             case 3:
                 // Activate the corresponding item for state 3
                 transformItems[3].SetActive(true);
+                SetTag(3);
                 isTransforming = true;
                 StartCooldown();
                 break;
@@ -74,6 +79,7 @@ public class MetamorphosisController : MonoBehaviour
             default:
                 // Default case: Activate the first item
                 transformItems[0].SetActive(true);
+                SetTag(0);
                 isTransforming = false;
                 // No cooldown triggered here
                 break;
@@ -87,6 +93,11 @@ public class MetamorphosisController : MonoBehaviour
         {
             item.SetActive(false);
         }
+    }
+
+    private void SetTag(int tagItem)
+    {
+        gameObject.tag = transformItems[tagItem].tag;
     }
 
     private void StartCooldown()

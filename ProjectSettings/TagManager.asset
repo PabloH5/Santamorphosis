@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Food
+  - Hide
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - EnemyDetection
   - Water
   - UI
   - 
