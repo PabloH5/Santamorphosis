@@ -920,6 +920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
+  isEating: 0
+  foodParticle: {fileID: 0}
+  eatingTime: 0
 --- !u!1 &743988871
 GameObject:
   m_ObjectHideFlags: 0
