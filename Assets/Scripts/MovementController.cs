@@ -17,7 +17,9 @@ public class MovementController : MonoBehaviour
     public float dashTimer;
     public bool isDashing;
     private float dashEndTime;
-    
+    [SerializeField] private Animator _animatorSanta;
+
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -39,12 +41,15 @@ public class MovementController : MonoBehaviour
         {
             HandleMovement();
         }
+        //Setting the horizontal and vertical movement from "moveInput" vector for animations
+        _animatorSanta.SetFloat("Vertical", _moveInput.x);
+        _animatorSanta.SetFloat("Horizontal", _moveInput.y);
     }
 
     private void HandleMovement()
     {
         //apply to the RigidBody2D velocity in the direction of the input at velocity of moveSpeed
-        _rb.velocity =_moveInput * moveSpeed;
+        _rb.velocity = _moveInput * moveSpeed;
     }
     public void Dash()
     {

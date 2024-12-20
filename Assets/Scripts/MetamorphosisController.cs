@@ -12,7 +12,13 @@ public class MetamorphosisController : MonoBehaviour
 
     [SerializeField] private float transformCoolDown = 2f; // Example value
     private float transformTimer = 0f;
+    private Animator _animatorPlayer;
+    [SerializeField] AnimationsController _animationsController;
 
+    private void Start()
+    {
+        _animatorPlayer = GetComponent<Animator>();
+    }
     void Update()
     {
         // Decrease the transformTimer if it's above zero
@@ -40,7 +46,7 @@ public class MetamorphosisController : MonoBehaviour
     public void Transformation(int itemId = 0)
     {
         TurnItems();
-        
+        _animatorPlayer.SetTrigger("IsConverting");
 
         switch (itemId)
         {
@@ -50,6 +56,7 @@ public class MetamorphosisController : MonoBehaviour
                 SetTag(0);
                 isTransforming = false;
                 // No cooldown triggered here
+                _animationsController.SetSanta();
                 break;
 
             case 1:
@@ -57,6 +64,7 @@ public class MetamorphosisController : MonoBehaviour
                 transformItems[1].SetActive(true);
                 SetTag(1);
                 isTransforming = true;
+                _animationsController.SetTool("Tool1");
                 StartCooldown();
                 break;
 
@@ -65,6 +73,7 @@ public class MetamorphosisController : MonoBehaviour
                 transformItems[2].SetActive(true);
                 SetTag(2);
                 isTransforming = true;
+                _animationsController.SetTool("Tool2");
                 StartCooldown();
                 break;
 
@@ -73,6 +82,7 @@ public class MetamorphosisController : MonoBehaviour
                 transformItems[3].SetActive(true);
                 SetTag(3);
                 isTransforming = true;
+                _animationsController.SetTool("Tool3");
                 StartCooldown();
                 break;
 
@@ -81,6 +91,7 @@ public class MetamorphosisController : MonoBehaviour
                 transformItems[0].SetActive(true);
                 SetTag(0);
                 isTransforming = false;
+                _animationsController.SetSanta();
                 // No cooldown triggered here
                 break;
         }

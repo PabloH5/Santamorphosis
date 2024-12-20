@@ -10,7 +10,8 @@ public class EventsController : MonoBehaviour
     private MetamorphosisController _metamorphosisController;
     private EatController _eatController;
 
-    private void Awake() {
+    private void Awake()
+    {
         _movementController = GetComponent<MovementController>();
         _metamorphosisController = GetComponent<MetamorphosisController>();
         _eatController = GetComponent<EatController>();
@@ -19,7 +20,7 @@ public class EventsController : MonoBehaviour
     }
 
     #region Events Subscription
-    private void OnEnable() 
+    private void OnEnable()
     {
         _playerInputs.Player.Enable();
         _playerInputs.Transformation.Enable();
@@ -31,6 +32,8 @@ public class EventsController : MonoBehaviour
         _playerInputs.Player.Dash.performed += OnDash;
 
         _playerInputs.Interact.Eat.performed += OnEat;
+        _playerInputs.Interact.Eat.canceled += OnEatCancel;
+
 
         // Get the transformation map again to subscribe actions
         InputActionMap transformationMap = _playerInputs.Transformation.Get();
@@ -42,7 +45,7 @@ public class EventsController : MonoBehaviour
 
     }
 
-    private void OnDisable() 
+    private void OnDisable()
     {
         _playerInputs.Player.Disable();
         _playerInputs.Transformation.Disable();
@@ -54,6 +57,7 @@ public class EventsController : MonoBehaviour
         _playerInputs.Player.Dash.performed -= OnDash;
 
         _playerInputs.Interact.Eat.performed -= OnEat;
+        _playerInputs.Interact.Eat.canceled -= OnEatCancel;
 
         // Get the transformation map again to unsubscribe actions
         InputActionMap transformationMap = _playerInputs.Transformation.Get();
@@ -67,7 +71,7 @@ public class EventsController : MonoBehaviour
 
     private void OnMove(InputAction.CallbackContext context)
     {
-        if(!_metamorphosisController.isTransforming)
+        if (!_metamorphosisController.isTransforming)
         {
             _movementController._moveInput = context.ReadValue<Vector2>();
         }
@@ -91,30 +95,34 @@ public class EventsController : MonoBehaviour
     {
         _eatController.isEating = context.performed;
     }
+    private void OnEatCancel(InputAction.CallbackContext context)
+    {
+        _eatController.isEating = false;
+    }
 
     private void OnTransform(InputAction.CallbackContext context)
     {
         switch (context.action.name)
         {
             case "TransformBack":
-            _metamorphosisController.TransformController(0);
-            break;
+                _metamorphosisController.TransformController(0);
+                break;
 
             case "Item1":
-            _metamorphosisController.TransformController(1);
-            break;
+                _metamorphosisController.TransformController(1);
+                break;
 
             case "Item2":
-            _metamorphosisController.TransformController(2);
-            break;
+                _metamorphosisController.TransformController(2);
+                break;
 
             case "Item3":
-            _metamorphosisController.TransformController(3);
-            break;
-            
+                _metamorphosisController.TransformController(3);
+                break;
+
             default:
-            _metamorphosisController.TransformController(0);
-            break;
+                _metamorphosisController.TransformController(0);
+                break;
         }
     }
 }

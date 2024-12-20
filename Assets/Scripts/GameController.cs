@@ -14,11 +14,11 @@ public class GameController : MonoBehaviour
 
     private MovementController movementController;
     private EatController eatController;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        eatController =  player.GetComponent<EatController>();
+        eatController = player.GetComponent<EatController>();
         movementController = player.GetComponent<MovementController>();
 
         dashCD = movementController.dashCoolDown;
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        pointsText.text = "X " + eatController.points;
+        pointsText.text = "x " + eatController.points;
         UpdateDashFill();
 
     }
