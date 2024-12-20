@@ -12,8 +12,15 @@ public class EnemiesMovement : MonoBehaviour
 
     public bool isChasing = false;
     public bool isReturningToPatrol = false;
+    private Vector3 lastPosition; // Almacena la última posición del enemigo
+    public string movingDirection;
+    public Transform rangoVisionMesh;
+    
+
 
     private Vector3 lastPositionTarget; 
+
+
 
     void Update()
     {
@@ -29,6 +36,8 @@ public class EnemiesMovement : MonoBehaviour
         {
             movementEnemy(); 
         }
+
+        directionMovement();
     }
 
     private void movementEnemy()
@@ -42,7 +51,11 @@ public class EnemiesMovement : MonoBehaviour
         {
             currentWaypointIndex++;
             if (currentWaypointIndex >= waypoints.Length) currentWaypointIndex = 0;
+
         }
+
+
+
     }
 
     public void chasingPlayer()
@@ -64,4 +77,49 @@ public class EnemiesMovement : MonoBehaviour
         
         return Vector2.Distance(transform.position, lastPositionTarget) > distanceMin;
     }
+
+
+   private void directionMovement()
+
+{
+    // Calcula la diferencia de posición
+    Vector3 currentPosition = transform.position;
+    Vector3 movement = currentPosition - lastPosition;
+
+    // Determinar la dirección según el movimiento
+    if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+    {
+        if (movement.x > 0)
+        {
+            movingDirection = "right"; // Se mueve hacia la derecha
+            rangoVisionMesh.rotation = Quaternion.Euler(0f, 0f, 90.0f);
+
+        }
+            
+        else if (movement.x < 0)
+        {
+            movingDirection = "left"; // Se mueve hacia la izquierda
+            rangoVisionMesh.rotation = Quaternion.Euler(0f, 0f, 270.0f);
+        }
+            
+    }
+    else
+    {
+        if (movement.y > 0)
+        {
+            movingDirection = "up"; // Se mueve hacia arriba
+            rangoVisionMesh.rotation = Quaternion.Euler(0f, 0f, 180.0f);
+        }
+            
+        else if (movement.y < 0)
+            movingDirection = "down"; // Se mueve hacia abajo
+    }
+
+    // Guardar la posición actual para usarla como la previa en el siguiente frame
+    lastPosition = currentPosition;
+
+    // Ejemplo: Imprime la dirección en la consola
+    Debug.Log("Enemy is moving: " + movingDirection);
+}
+
 }
