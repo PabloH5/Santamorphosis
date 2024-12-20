@@ -356,6 +356,45 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Interact"",
+            ""id"": ""86093d43-4d9b-41c7-bb4b-645e9c050cc2"",
+            ""actions"": [
+                {
+                    ""name"": ""Eat"",
+                    ""type"": ""Button"",
+                    ""id"": ""45ea7eda-5564-4d45-b395-d1dadcc33fbf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""efddd464-0a06-46cd-8b30-e6376026aa6a"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e5f2449-e889-44f7-8331-425c3cd65ee8"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -393,6 +432,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Transformation_Item2 = m_Transformation.FindAction("Item2", throwIfNotFound: true);
         m_Transformation_Item3 = m_Transformation.FindAction("Item3", throwIfNotFound: true);
         m_Transformation_TransformBack = m_Transformation.FindAction("TransformBack", throwIfNotFound: true);
+        // Interact
+        m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
+        m_Interact_Eat = m_Interact.FindAction("Eat", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -574,6 +616,52 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public TransformationActions @Transformation => new TransformationActions(this);
+
+    // Interact
+    private readonly InputActionMap m_Interact;
+    private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
+    private readonly InputAction m_Interact_Eat;
+    public struct InteractActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public InteractActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Eat => m_Wrapper.m_Interact_Eat;
+        public InputActionMap Get() { return m_Wrapper.m_Interact; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractActions set) { return set.Get(); }
+        public void AddCallbacks(IInteractActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InteractActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InteractActionsCallbackInterfaces.Add(instance);
+            @Eat.started += instance.OnEat;
+            @Eat.performed += instance.OnEat;
+            @Eat.canceled += instance.OnEat;
+        }
+
+        private void UnregisterCallbacks(IInteractActions instance)
+        {
+            @Eat.started -= instance.OnEat;
+            @Eat.performed -= instance.OnEat;
+            @Eat.canceled -= instance.OnEat;
+        }
+
+        public void RemoveCallbacks(IInteractActions instance)
+        {
+            if (m_Wrapper.m_InteractActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInteractActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InteractActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InteractActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InteractActions @Interact => new InteractActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -603,5 +691,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnItem2(InputAction.CallbackContext context);
         void OnItem3(InputAction.CallbackContext context);
         void OnTransformBack(InputAction.CallbackContext context);
+    }
+    public interface IInteractActions
+    {
+        void OnEat(InputAction.CallbackContext context);
     }
 }

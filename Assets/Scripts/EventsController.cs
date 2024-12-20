@@ -8,10 +8,12 @@ public class EventsController : MonoBehaviour
     private PlayerInputs _playerInputs;
     private MovementController _movementController;
     private MetamorphosisController _metamorphosisController;
+    private EatController _eatController;
 
     private void Awake() {
         _movementController = GetComponent<MovementController>();
         _metamorphosisController = GetComponent<MetamorphosisController>();
+        _eatController = GetComponent<EatController>();
 
         _playerInputs = new();
     }
@@ -21,11 +23,14 @@ public class EventsController : MonoBehaviour
     {
         _playerInputs.Player.Enable();
         _playerInputs.Transformation.Enable();
+        _playerInputs.Interact.Enable();
 
         _playerInputs.Player.Movement.performed += OnMove;
         _playerInputs.Player.Movement.canceled += CancelMove;
 
         _playerInputs.Player.Dash.performed += OnDash;
+
+        _playerInputs.Interact.Eat.performed += OnEat;
 
         // Get the transformation map again to subscribe actions
         InputActionMap transformationMap = _playerInputs.Transformation.Get();
@@ -41,11 +46,14 @@ public class EventsController : MonoBehaviour
     {
         _playerInputs.Player.Disable();
         _playerInputs.Transformation.Disable();
+        _playerInputs.Interact.Enable();
 
         _playerInputs.Player.Movement.performed -= OnMove;
         _playerInputs.Player.Movement.canceled -= CancelMove;
 
         _playerInputs.Player.Dash.performed -= OnDash;
+
+        _playerInputs.Interact.Eat.performed -= OnEat;
 
         // Get the transformation map again to unsubscribe actions
         InputActionMap transformationMap = _playerInputs.Transformation.Get();
@@ -77,6 +85,11 @@ public class EventsController : MonoBehaviour
             // Perform dash
             _movementController.Dash();
         }
+    }
+
+    private void OnEat(InputAction.CallbackContext context)
+    {
+        _eatController.isEating = context.performed;
     }
 
     private void OnTransform(InputAction.CallbackContext context)
