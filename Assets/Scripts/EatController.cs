@@ -19,6 +19,19 @@ public class EatController : MonoBehaviour
             points++;
         }
     }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Food"))
+        {
+            other.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.CompareTag("Food"))
+        {
+            other.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
 
     private IEnumerator EatCookie()
     {

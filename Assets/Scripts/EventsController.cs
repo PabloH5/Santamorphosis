@@ -18,6 +18,9 @@ public class EventsController : MonoBehaviour
 
         _playerInputs = new();
     }
+    private void Update() {
+        _movementController.canMove = !_metamorphosisController.isTransforming;
+    }
 
     #region Events Subscription
     private void OnEnable()
