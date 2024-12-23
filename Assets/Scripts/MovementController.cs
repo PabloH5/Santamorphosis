@@ -6,6 +6,7 @@ public class MovementController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     public Vector2 _moveInput;
+    public AudioSource audioSource;
 
     [Header("Movement parameters")]
     [SerializeField] private float moveSpeed = 5f;
@@ -68,5 +69,6 @@ public class MovementController : MonoBehaviour
 
         // Apply a high velocity in movement direction
         _rb.velocity = _moveInput.normalized * dashSpeed;
+        audioSource.Play();
     }
 }
