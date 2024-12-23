@@ -105,6 +105,9 @@ public class EnemiesMovement : MonoBehaviour
             movingDirection = "right";
             animator.SetBool("goRight", true);
             animator.SetBool("goLeft", false);
+            animator.SetBool("goUp", false);
+            animator.SetBool("GoDown", false);
+
 
             transform.localScale = new Vector3(1, 1, 1);
 
@@ -118,6 +121,8 @@ public class EnemiesMovement : MonoBehaviour
             movingDirection = "left";
             animator.SetBool("goLeft", true);
             animator.SetBool("goRight", false);
+            animator.SetBool("goUp", false);
+            animator.SetBool("GoDown", false);
             transform.localScale = new Vector3(-1, 1, 1);
 
             
@@ -135,7 +140,9 @@ public class EnemiesMovement : MonoBehaviour
             
             
                 animator.SetBool("goUp", true);
-                animator.SetBool("goDown", false);
+                animator.SetBool("GoDown", false);
+                animator.SetBool("goLeft", false);
+                animator.SetBool("goRight", false);
 
 
             
@@ -148,6 +155,8 @@ public class EnemiesMovement : MonoBehaviour
             movingDirection = "down";
             animator.SetBool("GoDown", true);
             animator.SetBool("goUp", false);
+            animator.SetBool("goLeft", false);
+            animator.SetBool("goRight", false);
 
            
             
