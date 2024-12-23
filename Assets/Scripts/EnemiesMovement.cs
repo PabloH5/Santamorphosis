@@ -48,6 +48,7 @@ public class EnemiesMovement : MonoBehaviour
     private void movementEnemy()
     {
         if (waypoints.Length == 0) return;
+        speed=2;
 
         Transform targetWaypoint = waypoints[currentWaypointIndex];
         transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
@@ -69,6 +70,12 @@ public class EnemiesMovement : MonoBehaviour
         if(Vector2.Distance(transform.position, santaMorpho.position)< 1.0f)
         {
             Debug.Log("Atrapado");
+            animator.SetBool("Idle", true);
+            animator.SetBool("goRight", false);
+            animator.SetBool("goLeft", false);
+            animator.SetBool("goUp", false);
+            animator.SetBool("GoDown", false);
+
 
         }
 
@@ -111,9 +118,6 @@ public class EnemiesMovement : MonoBehaviour
 
             transform.localScale = new Vector3(1, 1, 1);
 
-            
-            
-
         }
             
         else if (movement.x < 0)
@@ -124,10 +128,6 @@ public class EnemiesMovement : MonoBehaviour
             animator.SetBool("goUp", false);
             animator.SetBool("GoDown", false);
             transform.localScale = new Vector3(-1, 1, 1);
-
-            
-            
-            
             
         }
             
@@ -143,10 +143,6 @@ public class EnemiesMovement : MonoBehaviour
                 animator.SetBool("GoDown", false);
                 animator.SetBool("goLeft", false);
                 animator.SetBool("goRight", false);
-
-
-            
-            
             
         }
             
@@ -157,10 +153,6 @@ public class EnemiesMovement : MonoBehaviour
             animator.SetBool("goUp", false);
             animator.SetBool("goLeft", false);
             animator.SetBool("goRight", false);
-
-           
-            
-           
 
         }
             

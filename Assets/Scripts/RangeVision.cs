@@ -78,10 +78,10 @@ public class RangeVision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Activa la persecución
+            
             enemiesMovement.isChasing = true;
             enemiesMovement.isReturningToPatrol = false;
-            enemiesMovement.speed = 8f; // Incrementa la velocidad para perseguir
+            enemiesMovement.speed = 4f; 
 
             Debug.Log("Jugador detectado: comienza la persecución.");
         }
@@ -91,11 +91,11 @@ public class RangeVision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Guarda la última posición conocida del jugador
+            
             lastKnownPosition = other.transform.position;
             enemiesMovement.isChasing = false;
 
-            // Inicia la búsqueda en la última posición conocida
+           
             StartCoroutine(CheckLastKnownPosition());
 
             Debug.Log("Jugador fuera del rango: persigue última posición.");
