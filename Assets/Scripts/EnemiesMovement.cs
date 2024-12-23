@@ -5,6 +5,9 @@ public class EnemiesMovement : MonoBehaviour
 {
     public Transform[] waypoints;
     public Transform santaMorpho; 
+    public GameObject feedBackNegative;
+    public AudioSource audioSource;
+
 
     public float speed;
     private int currentWaypointIndex = 0;
@@ -75,6 +78,12 @@ public class EnemiesMovement : MonoBehaviour
             animator.SetBool("goLeft", false);
             animator.SetBool("goUp", false);
             animator.SetBool("GoDown", false);
+
+            feedBackNegative.SetActive(true);
+            Time.timeScale = 0;
+            audioSource.Stop();
+
+
 
 
         }

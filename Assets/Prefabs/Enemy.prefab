@@ -103,7 +103,11 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   santaMorpho: {fileID: 0}
+  feedBackNegative: {fileID: 0}
   speed: 2
   isChasing: 0
   isReturningToPatrol: 0
