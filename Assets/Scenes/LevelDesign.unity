@@ -32462,6 +32462,7 @@ MonoBehaviour:
   pointsText: {fileID: 910540989}
   dashTimer: {fileID: 1612614030}
   transformCdBar: {fileID: 70844220}
+  endText: {fileID: 514664780}
   winZone: {fileID: 681378668}
   pointsToWin: 4
 --- !u!4 &2099608060
