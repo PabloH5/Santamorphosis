@@ -81,7 +81,7 @@ public class RangeVision : MonoBehaviour
             
             enemiesMovement.isChasing = true;
             enemiesMovement.isReturningToPatrol = false;
-            enemiesMovement.speed = 4f; 
+            enemiesMovement.speed = 1f; 
 
             Debug.Log("Jugador detectado: comienza la persecución.");
         }

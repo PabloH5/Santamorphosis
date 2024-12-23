@@ -6,7 +6,7 @@ public class EnemiesMovement : MonoBehaviour
     public Transform[] waypoints;
     public Transform santaMorpho; 
 
-    public float speed = 2f;
+    public float speed;
     private int currentWaypointIndex = 0;
     private float distanceMin = 0.05f;
 
@@ -48,7 +48,7 @@ public class EnemiesMovement : MonoBehaviour
     private void movementEnemy()
     {
         if (waypoints.Length == 0) return;
-        speed=2;
+        speed=0.5f;
 
         Transform targetWaypoint = waypoints[currentWaypointIndex];
         transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
