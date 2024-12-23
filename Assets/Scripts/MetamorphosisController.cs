@@ -10,8 +10,8 @@ public class MetamorphosisController : MonoBehaviour
     // Indicates if can transform into states 1, 2 or 3
     public bool canTransform = true;
 
-    [SerializeField] private float transformCoolDown = 2f; // Example value
-    private float transformTimer = 0f;
+    public float transformCoolDown = 2f;
+    public float transformTimer = 0f;
     private Animator _animatorPlayer;
     [SerializeField] AnimationsController _animationsController;
 

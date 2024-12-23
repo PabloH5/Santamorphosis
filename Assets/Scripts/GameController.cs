@@ -16,34 +16,59 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Image dashTimer;
 
+    [SerializeField] private Slider transformCdBar;
+
 
     [Header("Win Conditions")]
     [SerializeField] private GameObject winZone;
     [SerializeField] private int pointsToWin;
 
-    private MovementController movementController;
-    private EatController eatController;
+    private MovementController _movementController;
+    private EatController _eatController;
+    private MetamorphosisController _metamorphosisController;
 
-    // Start is called before the first frame update
     void Start()
     {
-        eatController = player.GetComponent<EatController>();
-        movementController = player.GetComponent<MovementController>();
+        _eatController = player.GetComponent<EatController>();
+        _movementController = player.GetComponent<MovementController>();
+        _metamorphosisController = player.GetComponent<MetamorphosisController>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        pointsText.text = "x " + eatController.points;
+        pointsText.text = "x " + _eatController.points;
         UpdateDashFill();
-        ActivateWinZone(eatController.points);
+        MetamorphisisCD();
+        ActivateWinZone(_eatController.points);
     }
 
     private void UpdateDashFill()
     {
-        // Here we map the timer to a 0-1 range for the fill amount
-        float fillValue = movementController.dashTimer / movementController.dashCoolDown;
-        dashTimer.fillAmount = Mathf.Clamp01(fillValue);
+        if (_movementController.dashTimer <= 0)
+        {
+            dashTimer.gameObject.SetActive(false);
+        }
+        else
+        {
+            dashTimer.gameObject.SetActive(true);
+            // Here we map the timer to a 0-1 range for the fill amount
+            float fillValue = _movementController.dashTimer / _movementController.dashCoolDown;
+            dashTimer.fillAmount = Mathf.Clamp01(fillValue);
+        }
+    }
+
+    private void MetamorphisisCD()
+    {
+        if(_metamorphosisController.transformTimer <=0)
+        {
+            transformCdBar.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            transformCdBar.transform.parent.gameObject.SetActive(true);
+            float fillValue = _metamorphosisController.transformTimer / _metamorphosisController.transformCoolDown;
+            transformCdBar.value = Mathf.Clamp01(fillValue);
+        }
     }
 
     private void ActivateWinZone(int point)

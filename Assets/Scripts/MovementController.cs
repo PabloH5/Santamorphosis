@@ -16,6 +16,7 @@ public class MovementController : MonoBehaviour
     public float dashCoolDown = 2f;
     public float dashTimer;
     public bool isDashing;
+    public bool canMove = true;
     private float dashEndTime;
     [SerializeField] private Animator _animatorSanta;
 
@@ -48,8 +49,15 @@ public class MovementController : MonoBehaviour
 
     private void HandleMovement()
     {
-        //apply to the RigidBody2D velocity in the direction of the input at velocity of moveSpeed
-        _rb.velocity = _moveInput * moveSpeed;
+        if(canMove)
+        {
+            //apply to the RigidBody2D velocity in the direction of the input at velocity of moveSpeed
+            _rb.velocity = _moveInput * moveSpeed;
+        }
+        else
+        {
+            _rb.velocity = Vector2.zero;
+        }
     }
     public void Dash()
     {
