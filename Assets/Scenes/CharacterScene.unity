@@ -813,6 +813,7 @@ MonoBehaviour:
   dashCoolDown: 3
   dashTimer: 2
   isDashing: 0
+  _animatorSanta: {fileID: 0}
 --- !u!50 &658814934
 Rigidbody2D:
   serializedVersion: 4
@@ -895,6 +896,7 @@ MonoBehaviour:
   isTransforming: 0
   canTransform: 1
   transformCoolDown: 10
+  _animationsController: {fileID: 0}
 --- !u!114 &658814937
 MonoBehaviour:
   m_ObjectHideFlags: 0
