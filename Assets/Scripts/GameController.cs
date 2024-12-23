@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Slider transformCdBar;
 
+    [SerializeField] private GameObject endText;
+
 
     [Header("Win Conditions")]
     [SerializeField] private GameObject winZone;
@@ -50,8 +52,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            dashTimer.gameObject.SetActive(true);
             // Here we map the timer to a 0-1 range for the fill amount
+            dashTimer.gameObject.SetActive(true);
             float fillValue = _movementController.dashTimer / _movementController.dashCoolDown;
             dashTimer.fillAmount = Mathf.Clamp01(fillValue);
         }
@@ -75,8 +77,16 @@ public class GameController : MonoBehaviour
     {
         if (point >= pointsToWin)
         {
+            StartCoroutine(TurnOffObj(endText, 5f));
             winZone.SetActive(true);
         }
+    }
+
+    private IEnumerator TurnOffObj(GameObject gameObject, float seconds)
+    {
+        gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        gameObject.SetActive(false);
     }
 
     public void Pause()
