@@ -81,7 +81,7 @@ public class RangeVision : MonoBehaviour
             
             enemiesMovement.isChasing = true;
             enemiesMovement.isReturningToPatrol = false;
-            enemiesMovement.speed = 1f; 
+            enemiesMovement.speed = 2f; 
         }
 
         if (other.CompareTag("Hide"))
