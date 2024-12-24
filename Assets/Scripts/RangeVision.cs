@@ -12,10 +12,10 @@ public class RangeVision : MonoBehaviour
     public float height= 1.0f;
     private float smoothSpeed = 1.0f;
     
-    private float timeCounter = 0f;  // Contador de tiempo
+    private float timeCounter = 0f;  
 
 
-    private Vector3 lastKnownPosition; // Última posición conocida del jugador
+    private Vector3 lastKnownPosition; 
 
 
     void Update()
@@ -28,7 +28,7 @@ public class RangeVision : MonoBehaviour
     {
         Mesh mesh = new Mesh();
 
-        // Calcula el número de triángulos (6 para 2D: base y lados)
+        
         int numTriangles = 3; 
         int numVertices = numTriangles * 3;
 
@@ -36,7 +36,7 @@ public class RangeVision : MonoBehaviour
         int[] triangles = new int[numTriangles * 3];
 
         // Define los vértices en 2D
-        Vector3 origin = Vector3.zero; // Centro del cono
+        Vector3 origin = Vector3.zero; 
         Vector3 leftDirection = Quaternion.Euler(0, 0, -angle) * Vector3.up * distance; // Extremo izquierdo
         Vector3 rightDirection = Quaternion.Euler(0, 0, angle) * Vector3.up * distance; // Extremo derecho
 
@@ -104,7 +104,7 @@ public class RangeVision : MonoBehaviour
            
             StartCoroutine(CheckLastKnownPosition());
 
-            Debug.Log("Jugador fuera del rango: persigue última posición.");
+            
         }
         
     }
@@ -131,7 +131,7 @@ public class RangeVision : MonoBehaviour
       
         enemiesMovement.isReturningToPatrol = true;
 
-        Debug.Log("Jugador no encontrado: regresando a patrullar.");
+       
     }
 
     void rotationMesh()

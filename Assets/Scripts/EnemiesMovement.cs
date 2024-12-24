@@ -13,7 +13,7 @@ public class EnemiesMovement : MonoBehaviour
 
     public bool isChasing = false;
     public bool isReturningToPatrol = false;
-    private Vector3 lastPosition; // Almacena la última posición del enemigo
+    private Vector3 lastPosition; 
     public string movingDirection;
     
     private Vector3 lastPositionTarget; 
@@ -23,7 +23,7 @@ public class EnemiesMovement : MonoBehaviour
     void start()
     {
         
-        animator = GetComponent<Animator>(); // Obtén el Animator del personaje
+        animator = GetComponent<Animator>(); 
     }
 
     void Update()
@@ -93,11 +93,11 @@ public class EnemiesMovement : MonoBehaviour
 
     private void directionMovement()
     {
-        // Calcula la diferencia de posición
+        
         Vector3 currentPosition = transform.position;
         Vector3 movement = currentPosition - lastPosition;
 
-        // Determinar la dirección según el movimiento
+        
         if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
         {
             if (movement.x > 0)
@@ -151,7 +151,7 @@ public class EnemiesMovement : MonoBehaviour
             
         }
 
-        // Guardar la posición actual para usarla como la previa en el siguiente frame
+       
         lastPosition = currentPosition;
     }
 
