@@ -22,7 +22,6 @@ public class EnemiesMovement : MonoBehaviour
 
     void start()
     {
-        
         animator = GetComponent<Animator>(); 
     }
 
@@ -56,7 +55,6 @@ public class EnemiesMovement : MonoBehaviour
         {
             currentWaypointIndex++;
             if (currentWaypointIndex >= waypoints.Length) currentWaypointIndex = 0;
-
         }
     }
 
@@ -70,9 +68,9 @@ public class EnemiesMovement : MonoBehaviour
             animator.SetBool("goLeft", false);
             animator.SetBool("goUp", false);
             animator.SetBool("GoDown", false);
-
-            feedBackNegative.SetActive(true);
+            isChasing = false;
             Time.timeScale = 0;
+            feedBackNegative.SetActive(true);
             audioSource.Stop();
         }
     }
@@ -85,7 +83,6 @@ public class EnemiesMovement : MonoBehaviour
 
     public bool ReachedLastPosition()
     {
-        
         transform.position = Vector2.MoveTowards(transform.position, lastPositionTarget, speed * Time.deltaTime);
         return Vector2.Distance(transform.position, lastPositionTarget) > distanceMin;
     }

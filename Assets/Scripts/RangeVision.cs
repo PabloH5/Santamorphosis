@@ -101,10 +101,7 @@ public class RangeVision : MonoBehaviour
             lastKnownPosition = other.transform.position;
             enemiesMovement.isChasing = false;
 
-           
             StartCoroutine(CheckLastKnownPosition());
-
-            
         }
         
     }
