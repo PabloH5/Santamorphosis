@@ -82,8 +82,14 @@ public class RangeVision : MonoBehaviour
             enemiesMovement.isChasing = true;
             enemiesMovement.isReturningToPatrol = false;
             enemiesMovement.speed = 1f; 
+        }
 
-            Debug.Log("Jugador detectado: comienza la persecución.");
+        if (other.CompareTag("Hide"))
+        {
+            
+            enemiesMovement.isChasing = false;
+            enemiesMovement.isReturningToPatrol = true;
+            enemiesMovement.speed = 1f; 
         }
     }
 
@@ -99,6 +105,17 @@ public class RangeVision : MonoBehaviour
             StartCoroutine(CheckLastKnownPosition());
 
             Debug.Log("Jugador fuera del rango: persigue última posición.");
+        }
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        if (other.CompareTag("Hide"))
+        {
+            
+            enemiesMovement.isChasing = false;
+            enemiesMovement.isReturningToPatrol = true;
+            enemiesMovement.speed = 1f; 
         }
     }
 

@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,6 +26,7 @@ public class GameController : MonoBehaviour
     private MovementController _movementController;
     private EatController _eatController;
     private MetamorphosisController _metamorphosisController;
+    private bool isFinish = false;
 
     void Start()
     {
@@ -75,10 +74,11 @@ public class GameController : MonoBehaviour
 
     private void ActivateWinZone(int point)
     {
-        if (point >= pointsToWin)
+        if (point >= pointsToWin && !isFinish)
         {
             StartCoroutine(TurnOffObj(endText, 5f));
             winZone.SetActive(true);
+            isFinish = true;
         }
     }
 
@@ -101,10 +101,11 @@ public class GameController : MonoBehaviour
 
     public void Reload()
     {
+        Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-     public void LoadScene(String sceneName)
+     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }

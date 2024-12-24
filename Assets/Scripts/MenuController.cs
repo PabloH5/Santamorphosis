@@ -1,0 +1,15 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuController : MonoBehaviour
+{
+    public void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+     public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+}
