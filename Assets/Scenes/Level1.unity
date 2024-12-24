@@ -34170,7 +34170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 893612717916629689, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 893612717916629689, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -34182,11 +34182,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 893612717916629689, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Reload
+      value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 893612717916629689, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 893612717916629689, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 893612717916629689, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -34198,7 +34202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8988357392975585951, guid: eff04a170e3830541ac58feed6e51c42, type: 3}
       propertyPath: m_Text
-      value: PLAY AGAIN
+      value: Exit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
