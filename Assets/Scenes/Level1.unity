@@ -994,6 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesMovement: {fileID: 1346898703}
+  rangeVision: {fileID: 0}
 --- !u!70 &287686971
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -34447,6 +34448,10 @@ PrefabInstance:
       propertyPath: _animationsController
       value: 
       objectReference: {fileID: 1587248919}
+    - target: {fileID: 6134249685445302472, guid: 6b3b3405375d0fa47814821867791e43, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ab1c21b95e5effb4e95271fa8304fe94, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
