@@ -5,6 +5,7 @@ using UnityEngine;
 public class RangeVIsionShort : MonoBehaviour
 {
     public EnemiesMovement enemiesMovement;
+    public RangeVision rangeVision;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class RangeVIsionShort : MonoBehaviour
             enemiesMovement.isChasing = true;
             enemiesMovement.isReturningToPatrol = false;
             enemiesMovement.speed = 1f; 
+            StartCoroutine(rangeVision.CheckLastKnownPosition());
         }
     }
 

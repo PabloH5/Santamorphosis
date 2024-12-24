@@ -116,7 +116,7 @@ public class RangeVision : MonoBehaviour
         }
     }
 
-    private IEnumerator CheckLastKnownPosition()
+    public IEnumerator CheckLastKnownPosition()
     {
         
         enemiesMovement.MoveToLastPosition(lastKnownPosition);
